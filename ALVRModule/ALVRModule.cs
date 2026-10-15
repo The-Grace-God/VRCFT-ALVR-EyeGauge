@@ -38,7 +38,11 @@ namespace ALVRModule
             ModuleInformation.StaticImages = stream != null ? new List<Stream> { stream } : ModuleInformation.StaticImages;
 
             Socket.Client.ReceiveTimeout = 100;
-            
+            //Tracking Failsafe
+            UnifiedTracking.Data.Eye.Left.Gaze.x = 0;
+            UnifiedTracking.Data.Eye.Left.Gaze.y = 0;
+            UnifiedTracking.Data.Eye.Right.Gaze.x = 0;
+            UnifiedTracking.Data.Eye.Right.Gaze.y = 0;
             //EyeGauge
             EyeTracking.ConfigureLogger(Logger);
             EyeTracking.InitializeEyeGauge();

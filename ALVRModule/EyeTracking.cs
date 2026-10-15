@@ -192,10 +192,10 @@ namespace ALVRModule
                 // Send the current gaze coordinates to EyeGauge.
                 var gaze = new MemoryBufferEye
                 {
-                    l_eyeX_n = 0,
-                    l_eyeY_n = 0,
-                    r_eyeX_n = 0,
-                    r_eyeY_n = 0,
+                    l_eyeX_n = eye.Left.Gaze.x,
+                    l_eyeY_n = eye.Left.Gaze.y,
+                    r_eyeX_n = eye.Right.Gaze.x,
+                    r_eyeY_n = eye.Right.Gaze.y,
                 };
 
                 _eyeAccessor.Write(0, ref gaze);
