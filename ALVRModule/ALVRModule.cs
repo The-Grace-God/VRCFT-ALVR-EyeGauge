@@ -13,6 +13,8 @@ namespace ALVRModule
 
         private const int Port = 0xA1F7;
         private const int PrefixSize = 8;
+        private int _debugLogCount = 0;
+        private const int MaxDebugLogs = 20;
 
         private readonly UdpClient Socket = new(Port);
         private readonly Dictionary<string, ParamsConsumer> Consumers = new()
@@ -30,12 +32,16 @@ namespace ALVRModule
 
         public override (bool eyeSuccess, bool expressionSuccess) Initialize(bool eyeAvailable, bool expressionAvailable)
         {
-            ModuleInformation.Name = "ALVR";
+            ModuleInformation.Name = "ALVR (Smuffy's Unofficial EyeGauge Fork)";
 
             var stream = GetType().Assembly.GetManifestResourceStream("ALVRModule.Assets.alvr.png");
             ModuleInformation.StaticImages = stream != null ? new List<Stream> { stream } : ModuleInformation.StaticImages;
 
             Socket.Client.ReceiveTimeout = 100;
+            
+            //EyeGauge
+            EyeTracking.ConfigureLogger(Logger);
+            EyeTracking.InitializeEyeGauge();
 
             return (true, true);
         }
@@ -66,6 +72,7 @@ namespace ALVRModule
                 if (Consumers.TryGetValue(prefix, out var consumer) && consumer != null)
                 {
                     consumer(p, FloatWeightParams.Instance, UnifiedTracking.Data.Eye);
+                    EyeTracking.SetEyeDialation(UnifiedTracking.Data.Eye);
                     continue;
                 }
 
@@ -76,6 +83,8 @@ namespace ALVRModule
         public override void Teardown()
         {
             Socket.Close();
+            // EyeGauge
+            EyeTracking.ShutdownEyeGauge();
         }
     }
 }
