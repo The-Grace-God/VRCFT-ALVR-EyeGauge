@@ -1,6 +1,8 @@
-# VRCFT-ALVR
+# VRCFT-ALVR-EyeGauge
 
-VRCFaceTracking module for ALVR
+VRCFaceTracking module for ALVR with added support for EyeGauge
+
+Adds eye dilation by seeing how bright your screen is
 
 ## Build from source
 
