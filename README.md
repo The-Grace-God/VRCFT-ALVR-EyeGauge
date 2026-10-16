@@ -5,9 +5,9 @@ VRCFaceTracking module for ALVR with added support for EyeGauge
 Adds eye dilation by seeing how bright your screen is
 
 ## Installation
-1. Copy "ALVRModule.dll" to C:\Users\{user}\AppData\Roaming\VRCFaceTracking\CustomLibs\
+1. Copy "ALVRModule.dll" to C:\Users\\{user}\AppData\Roaming\VRCFaceTracking\CustomLibs\
 2. Download the zip from https://github.com/The-Grace-God/VRCFT-ALVR-EyeGauge/releases/tag/!Misc-EyeGauge
-3. Unpack zip to C:\Users\{user}\AppData\Roaming\VRCFaceTracking\CustomLibs\ 
+3. Unpack zip to C:\Users\\{user}\AppData\Roaming\VRCFaceTracking\CustomLibs\ 
 
 ## Build from source
 
