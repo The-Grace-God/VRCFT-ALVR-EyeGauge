@@ -28,5 +28,5 @@ Adds eye dilation by seeing how bright your screen is
 2. Launch ALVR. Set `Eye and face tracking` to `VRCFaceTracking`. Then connect the client.
 3. Launch VRChat and enable face tracking in the settings.
 
-CVR Note: Launch after the game has been booted otherwise it wont be detected and data wont be sent
-VRC Note: VRCFaceTracking and ALVR can be launched in any order. If you launch VRCFaceTracking after VRChat, you need to reload your avatar.
+- CVR Note: Launch after the game has been booted otherwise it wont be detected and data wont be sent
+- VRC Note: VRCFaceTracking and ALVR can be launched in any order. If you launch VRCFaceTracking after VRChat, you need to reload your avatar.
